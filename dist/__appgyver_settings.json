@@ -21,6 +21,6 @@
   },
   "tabs": [],
   "rootView": {
-    "location": "statistic#bob"
+    "location": "home#index"
   }
 }
