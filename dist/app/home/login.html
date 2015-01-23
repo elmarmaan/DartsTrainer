@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>login</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/home.js"></script>
+  
+</head>
+<body ng-app="home">
+
+<div ng-controller="LoginController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Login
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+  	<div class="list">
+  		<label class="item item-input">
+  			<span class="input-label">Email address</span>
+    		<input type="text" ng-model="username">
+  		</label>
+  		<label class="item item-input">
+	    	<span class="input-label">Password</span>
+	    	<input type="password" ng-model="password">
+	  	</label>
+      <button class="button button-block button-positive activated" ng-click="login()">Login</button>
+	  	<button class="button button-block button-positive activated" ng-click="register()">Register</button>	  	
+	</div>
+  </div>
+
+</div>
+
+</body>
+</html>

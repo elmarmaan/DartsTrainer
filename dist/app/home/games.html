@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>games</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/home.js"></script>
+  
+</head>
+<body ng-app="home">
+
+<div ng-controller="GamesController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Games
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <h4>Doubles</h4>
+    <button class="button button-full button-balanced" ng-click="startBobAnderson()">Bob's 27</button>
+    <h4>Overall</h4>
+    <button class="button button-full button-assertive" ng-click="startGeneralGame(501)">501</button>
+    <button class="button button-full button-assertive" ng-click="startGeneralGame(301)">301</button>
+    <button class="button button-full button-assertive" ng-click="startGeneralGame(101)">101</button>
+  </div>
+</div>
+
+</body>
+</html>

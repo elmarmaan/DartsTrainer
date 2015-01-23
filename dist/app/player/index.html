@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>index</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/player.js"></script>
+  
+</head>
+<body ng-app="player" class="content">
+
+<div ng-controller="IndexController">
+  <super-navbar>
+    <super-navbar-title>
+      Player Index
+    </super-navbar-title>
+  </super-navbar>
+
+  <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner">
+    <ul class="list" ng-hide="players.length == 0">
+
+      <super-navigate location="player#show" data-params-id="{{ player.id }}" ng-repeat="player in players">
+        <li ng-show="player.player_uuid == guid"class="item item-icon-right">
+          <span ng-bind="player['name']"></span>
+          <i class="icon super-ios7-arrow-right"></i>
+        </li>
+      </super-navigate>
+
+    </ul>
+
+    <h4 ng-show="players.length == 0" class="assertive padding">
+      No players found. Create one?
+    </h4>
+
+    <super-modal-show location="player#new">
+      <button ng-show="players.length == 0" class="button button-full button-positive">
+        Create a new player
+      </button>
+    </super-modal-show>
+  </div>
+</div>
+
+
+</body>
+</html>

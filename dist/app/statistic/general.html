@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>general</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/statistic.js"></script>
+  
+</head>
+<body ng-app="statistic">
+
+<div ng-controller="GeneralController">
+
+  <super-navbar>
+    <super-navbar-title>
+      {{score}}
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+  	<div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+    	<div class="totals">
+    		<h2>Current level: {{status}}</h2>
+			<h2>Totals</h2>
+	    	<div class="games_played">
+	    		<span class="label">Total number of games played: </span>
+				<span class="value">{{games.length}}</span>
+			</div>
+			<div class="good">
+				<h4>Good</h4>
+				<div>
+					<span class="label">Number of games won: </span>
+					<span class="value">{{numberOfGamesWon}}</span>
+				</div>
+				<div>
+					<span class="label">Less number of darts thrown: </span>
+					<span class="value">{{lessNumberOfDartsThrown}}</span>
+				</div>
+				<div>
+					<span class="label">Best three dart average: </span>
+					<span class="value">{{bestThreeDartAverage}}</span>
+				</div>	
+				<div>
+					<span class="label">Highest finish: </span>
+					<span class="value">{{highestFinish}}</span>
+				</div>	
+				<div>
+					<span class="label">100+ </span>
+					<span class="value">{{oneHundred}}</span>
+				</div>	
+				<div>
+					<span class="label">140+ </span>
+					<span class="value">{{oneHundredFourty}}</span>
+				</div>	
+				<div>
+					<span class="label">180+ </span>
+					<span class="value">{{oneHundredEighty}}</span>
+				</div>	
+			</div>
+			<div class="bad">
+				<h4>Bad</h4>
+				<div>
+					<span class="label">Number of games lost: </span>
+					<span class="value">{{numberOfGamesLost}}</span>
+				</div>			
+				<div>
+					<span class="label">Most number of darts thrown: </span>
+					<span class="value">{{mostNumberOfDartsThrown}}</span>
+				</div>
+
+				<div>
+					<span class="label">Worst three dart average: </span>
+					<span class="value">{{worstThreeDartAverage}}</span>
+				</div>			
+			</div>
+    	</div>
+	    <div class="averages">
+	    	<h2>Current averages</h2>
+			<div>
+				<div>
+					<span class="label">Three dart average: </span>
+					<span class="value">{{threeDartAverage | number:1}}</span>
+				</div>				
+				<div>
+					<span class="label">Number of darts thrown: </span>
+					<span class="value">{{numberOfDartsThrownAverage| number:1}}</span>
+				</div>
+			</div>
+	    </div>			
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

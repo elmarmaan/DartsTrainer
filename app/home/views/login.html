@@ -1,0 +1,24 @@
+<div ng-controller="LoginController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Login
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+  	<div class="list">
+  		<label class="item item-input">
+  			<span class="input-label">Email address</span>
+    		<input type="text" ng-model="username">
+  		</label>
+  		<label class="item item-input">
+	    	<span class="input-label">Password</span>
+	    	<input type="password" ng-model="password">
+	  	</label>
+      <button class="button button-block button-positive activated" ng-click="login()">Login</button>
+	  	<button class="button button-block button-positive activated" ng-click="register()">Register</button>	  	
+	</div>
+  </div>
+
+</div>

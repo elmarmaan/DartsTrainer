@@ -1,0 +1,40 @@
+<div ng-controller="ShowController">
+  <super-navbar>
+    <super-navbar-title>
+      Show
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+      <h2 ng-bind="generalgame['player_average']"></h2>
+      
+      
+      
+       <p>cpu_average: <span ng-bind="generalgame['cpu_average']"></span></p> 
+      
+       <p>score_from: <span ng-bind="generalgame['score_from']"></span></p> 
+      
+       <p>player_uuid: <span ng-bind="generalgame['player_uuid']"></span></p> 
+      
+       <p>won: <span ng-bind="generalgame['won']"></span></p> 
+      
+       <p>number_of_darts_thrown: <span ng-bind="generalgame['number_of_darts_thrown']"></span></p> 
+      
+       <p>creation_datetime: <span ng-bind="generalgame['creation_datetime']"></span></p> 
+      
+
+
+      <super-modal-show location="generalgame#edit?id={{ generalgame.id }}">
+        <button class="button button-block button-positive">
+          Edit
+        </button>
+      </super-modal-show>
+
+      <button ng-click="remove(generalgame.id)" class="button button-block button-negative">
+        Remove
+      </button>
+    </div>
+  </div>
+</div>

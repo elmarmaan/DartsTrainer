@@ -1,0 +1,54 @@
+.col.name {
+	padding: 5px;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	background: #f7f7f7;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.col.score {
+	padding: 5px;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+}
+
+.scores .player_scores{
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+
+.scores .cpu_scores{
+	float: right;
+	width: 50%;
+	text-align: center;
+}
+
+.footer input{
+	float: left;
+	width: 50px;
+}
+
+.footer .button{
+	float: right;
+}
+
+.value{
+	float: right;
+}
+.good .value{
+	color: #66cc33 !important;
+}
+
+.bad .value{
+	color: #ef4e3a !important;
+}
+
+.center{
+	width: 100%;
+	text-align: center;
+}

@@ -1,0 +1,43 @@
+<div ng-controller="GeneralController" class="general">
+
+  <super-navbar>
+    <super-navbar-button ng-click="quitGame()">
+      <a class="button button-icon icon super-settings"></a>
+      Quit
+    </super-navbar-button>
+    <super-navbar-title>
+      {{score}}
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="content padding">
+    
+    <div class="header"> 
+      <div class="row">
+        <div class="col name">{{name}}</div>
+        <div class="col name">CPU</div>
+      </div>
+
+      <div class="row">
+        <div class="col score">{{playerScore}}</div>
+        <div class="col score">{{cpuScore}}</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="scores">
+        <div class="player_scores">
+          <div ng-repeat="pscore in playerScores track by $index">{{pscore}}</div>
+        </div>
+        <div class="cpu_scores" >
+          <div ng-repeat="cscore in cpuScores track by $index">{{cscore}}</div>
+        </div>
+      </div>
+    </div>    
+    <div class="footer">
+      <input type="text" placeholder="Score" ng-model="scoreInput" pattern="\d*">
+      <button class="button button-royal" ng-click="setScore()">Next</button>
+    </div>
+  </div>
+    
+</div>

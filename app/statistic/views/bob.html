@@ -1,0 +1,63 @@
+<div ng-controller="BobController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Bob's 27
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+  	<div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+    <div ng-hide="showSpinner">
+    	<div class="totals">
+    		<h2>Current level: {{status}}</h2>
+			<h2>Totals</h2>
+	    	<div class="games_played">
+	    		<span class="label">Total number of games played: </span>
+				<span class="value">{{games.length}}</span>
+			</div>
+			<div class="good">
+				<h4>Good</h4>	
+				<div>
+					<span class="label">Best score: </span>
+					<span class="value">{{bestScore}}</span>
+				</div>				
+				<div>
+					<span class="label">Most number of darts thrown: </span>
+					<span class="value">{{mostNumberOfDartsThrown}}</span>
+				</div>							
+			</div>
+			<div class="bad">
+				<h4>Bad</h4>						
+				<div>
+					<span class="label">Less number of darts thrown: </span>
+					<span class="value">{{lessNumberOfDartsThrown}}</span>
+				</div>
+
+				<div>
+					<span class="label">Worst score: </span>
+					<span class="value">{{worstScore}}</span>
+				</div>			
+			</div>
+    	</div>
+	    <div class="averages">
+	    	<h2>Current averages</h2>
+			<div>
+				<div>
+					<span class="label">Three dart average (hits): </span>
+					<span class="value">{{threeDartAverage | number:1}}</span>
+				</div>				
+				<div>
+					<span class="label">Score per game: </span>
+					<span class="value">{{scoreAverage | number:1}}</span>
+				</div>
+				<div>
+					<span class="label">Double percentage: </span>
+					<span class="value">{{hittingPercentage | number:0}}%</span>
+				</div>
+			</div>
+	    </div>			
+    </div>
+  </div>
+
+</div>

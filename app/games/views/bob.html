@@ -1,0 +1,28 @@
+<div ng-controller="BobController">
+
+  <super-navbar>
+    <super-navbar-button ng-click="quitGame()">
+      <a class="button button-icon icon super-settings"></a>
+      Quit
+    </super-navbar-button>
+    <super-navbar-title>
+      Bob's 27
+    </super-navbar-title>
+  </super-navbar>
+
+  <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
+  <div ng-hide="showSpinner" class="padding">    
+    <h2 class="center">{{score}}</h2>
+    <div class="scores" ng-repeat="score in scores">
+      <i ng-show="score.done" class="icon super-checkmark-round"></i>
+      <span>Double {{score.name}}</span>
+      <span>{{score.value}}</span>
+    </div>
+
+    <div class="footer">
+      <input type="text" placeholder="Hits" ng-model="scoreInput" pattern="\d*">
+      <button class="button button-royal" ng-click="setScore()">Next</button>
+    </div>
+
+  </div>
+</div>

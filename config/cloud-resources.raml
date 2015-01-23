@@ -1,0 +1,138 @@
+#%RAML 0.8
+title: Steroids Data
+mediaType: application/json
+baseUri: https://rest-api.appgyver.com/v1/
+
+traits:
+  - securedBySteroidsApiKey:
+      headers:
+        steroidsApiKey:
+          type: string
+          example: exampleapikey
+          default: 991647f069008ae653c7c882854fbab1fcdf7b05468b4cf8573213603813a3ce
+        steroidsAppId:
+          type: integer
+          example: 1234
+          default: 40638
+
+schemas:
+  - Players: '{"$schema":"http://json-schema.org/schema","title":"Player collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical Player representation","properties":{"player_uuid":{"type":"string"},"name":{"type":"string"},"username":{"type":"string"},"password":{"type":"string"}},"required":[]}}}}'
+  - Player: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical Player representation","properties":{"object":{"type":"object","properties":{"player_uuid":{"type":"string"},"name":{"type":"string"},"username":{"type":"string"},"password":{"type":"string"}},"required":[]}}}'
+  - GeneralGames: '{"$schema":"http://json-schema.org/schema","title":"GeneralGame collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical GeneralGame representation","properties":{"player_average":{"type":"string"},"cpu_average":{"type":"string"},"score_from":{"type":"integer"},"player_uuid":{"type":"string"},"won":{"type":"boolean"},"number_of_darts_thrown":{"type":"integer"},"creation_datetime":{"type":"string"},"finish":{"type":"integer"},"one_hundred_plus":{"type":"integer"},"one_hundred_fourty_plus":{"type":"integer"},"one_hundred_eighty_plus":{"type":"integer"}},"required":[]}}}}'
+  - GeneralGame: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical GeneralGame representation","properties":{"object":{"type":"object","properties":{"player_average":{"type":"string"},"cpu_average":{"type":"string"},"score_from":{"type":"integer"},"player_uuid":{"type":"string"},"won":{"type":"boolean"},"number_of_darts_thrown":{"type":"integer"},"creation_datetime":{"type":"string"},"finish":{"type":"integer"},"one_hundred_plus":{"type":"integer"},"one_hundred_fourty_plus":{"type":"integer"},"one_hundred_eighty_plus":{"type":"integer"}},"required":[]}}}'
+  - BobAndersons: '{"$schema":"http://json-schema.org/schema","title":"BobAnderson collection","type":"object","properties":{"objects":{"type":"array","items":{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical BobAnderson representation","properties":{"player_uuid":{"type":"string"},"creation_datetime":{"type":"string"},"number_of_darts_thrown":{"type":"integer"},"score":{"type":"integer"},"number_of_doubles_hit":{"type":"integer"}},"required":[]}}}}'
+  - BobAnderson: '{"$schema":"http://json-schema.org/schema","type":"object","description":"The canonical BobAnderson representation","properties":{"object":{"type":"object","properties":{"player_uuid":{"type":"string"},"creation_datetime":{"type":"string"},"number_of_darts_thrown":{"type":"integer"},"score":{"type":"integer"},"number_of_doubles_hit":{"type":"integer"}},"required":[]}}}'
+
+resourceTypes:
+  - dolan_db_collection:
+      usage: This resourceType should be used for any collection of items
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "collection"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "objects"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>> # e.g cars
+      post:
+        description: |
+          {
+            "action": "create",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName | !singularize>>
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName | !singularize>> # e.g. car
+
+  - dolan_db_member:
+      usage: This resourceType should be used for any built.io item
+      is: [ securedBySteroidsApiKey ]
+      get:
+        description: |
+          {
+            "action": "find"
+          }
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>> # e.g. car
+      put:
+        description: |
+          {
+            "action": "update",
+            "rootKey": "object"
+          }
+        body:
+          application/json:
+            schema: <<resourcePathName | !singularize>>
+        responses:
+          200:
+            description: |
+              {
+                "rootKey": "object"
+              }
+            body:
+              application/json:
+                schema: <<resourcePathName>>
+      delete:
+        description: |
+          {
+            "action": "destroy"
+          }
+        responses:
+          200:
+      
+
+
+/Player:
+  description: |
+    {
+      "resourceName": "Player",
+      "identifierKey": "id"
+    }
+  type: dolan_db_collection
+  /{id}:
+    type: dolan_db_member
+
+/GeneralGame:
+  description: |
+    {
+      "resourceName": "GeneralGame",
+      "identifierKey": "id"
+    }
+  type: dolan_db_collection
+  /{id}:
+    type: dolan_db_member
+
+/BobAnderson:
+  description: |
+    {
+      "resourceName": "BobAnderson",
+      "identifierKey": "id"
+    }
+  type: dolan_db_collection
+  /{id}:
+    type: dolan_db_member
+
+

@@ -1,0 +1,26 @@
+{
+  "preloads": [
+    {
+      "id": "learn-more",
+      "location": "http://localhost/app/example/learn-more.html"
+    },
+    {
+      "id": "using-the-scanner",
+      "location": "http://localhost/app/example/using-the-scanner.html"
+    }
+  ],
+  "drawers": {
+    "left": {
+      "id": "leftDrawer",
+      "location": "http://localhost/app/home/drawer.html",
+      "showOnAppLoad": false
+    },
+    "options": {
+      "animation": "swingingDoor"
+    }
+  },
+  "tabs": [],
+  "rootView": {
+    "location": "statistic#bob"
+  }
+}

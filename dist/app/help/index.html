@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>index</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/help.js"></script>
+  
+</head>
+<body ng-app="help">
+
+<div ng-controller="IndexController">
+
+  <super-navbar>
+    <super-navbar-title>
+      Help
+    </super-navbar-title>
+  </super-navbar>
+
+  <div class="padding">
+    <div class="purpose">
+    	<h3>Purpose</h3>
+    	<p>
+    		This app will help you take your dart skills to the next level!
+    		It covers all the games you need to become a pro.
+    	</p>
+    </div>
+
+    <div class="games">
+    	<h3>Games</h3>
+    	<p>
+    		<h4>501/301/101</h4>
+    		With these games you can test your skills against an opponent of your desired strength.
+    		You can give the opponent a three dart average which you think you can beat.
+			<br />
+    		Improves: scoring and doubles	
+    	</p>    	
+    </div>
+
+    <div class="statistics">
+    	<h3>Statistics</h3>
+    	<p>
+    		The most important thing in becoming a dart legend, is to keep track of your progress.
+    		You can see several statistics for each game type and each game type has his own level.
+
+    		<h4>Levels per game type</h4>
+    		<h5>501/301/101</h5>
+    		Beginner: three dart average below 40<br />
+    		Mediate: three dart average from 40 to 60<br />
+    		Semi pro: three dart average from 60 to 85<br />
+    		Pro: three dart average from 85 to 100<br />
+    		Expert: three dart average 100 and above
+    	</p>   
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
