@@ -39,11 +39,8 @@ angular
 		supersonic.ui.modal.hide(options);
     };
 
-    $scope.setScore = function(){
-    	if(isNaN($scope.scoreInput) || $scope.scoreInput === '' || $scope.scoreInput > 3 || $scope.scoreInput < 0){
-            supersonic.ui.dialog.alert('Please provide a valid number!');
-            return;
-      	}
+    $scope.setScore = function(score){
+    	  $scope.scoreInput = score; 
       	setPlayerScore();
     }
 

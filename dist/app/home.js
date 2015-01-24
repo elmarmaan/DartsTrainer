@@ -6,6 +6,9 @@ angular.module('home', [
 angular
   .module('home')
   .controller('IndexController', function($scope, supersonic) {
+
+    steroids.view.setBackgroundColor('#0c0c0c');
+
     var options = {
       side: "left"
     }
