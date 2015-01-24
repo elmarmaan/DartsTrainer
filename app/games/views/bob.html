@@ -12,21 +12,16 @@
 
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner" class="padding">    
-    <h2 class="center">{{score}}</h2>
-    <div class="scores" ng-repeat="score in scores">
-      <div ng-class="($index > 10) ? 'right': 'left'">
-        <i ng-show="score.done" class="icon super-checkmark-round"></i>
-        <span>Double {{score.name}}</span>
-        <span>{{score.value}}</span>
-      </div>      
+    <h2 class="center">Score: {{score}}</h2>
+    <div class="center">
+      Double {{doubleLabel}}     
     </div>
+  </div>
 
-    <div class="footer_bob">
-      <button class="button button-royal" ng-click="setScore(0)">Zero</button>
-      <button class="button button-royal" ng-click="setScore(1)">One</button>
-      <button class="button button-royal" ng-click="setScore(2)">Two</button>
-      <button class="button button-royal" ng-click="setScore(3)">Three</button>
-    </div>
-
+  <div class="footer_bob">
+    <button class="button button-balanced" ng-click="setScore(0)">Zero</button>
+    <button class="button button-balanced" ng-click="setScore(1)">One</button>
+    <button class="button button-balanced" ng-click="setScore(2)">Two</button>
+    <button class="button button-balanced" ng-click="setScore(3)">Three</button>
   </div>
 </div>

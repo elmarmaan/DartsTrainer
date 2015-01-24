@@ -6,32 +6,14 @@ angular.module('games', [
 angular
   .module('games')
   .controller('BobController', function($scope, supersonic) {
+
+    steroids.view.setBackgroundColor('#0c0c0c');
+
   	$scope.showSpinner = false;
   	$scope.score = 27;
   	$scope.scoreInput = undefined;
-  	$scope.scores = [
-  		{name: '1', value: 0, done: false},
-  		{name: '2', value: 0, done: false},
-  		{name: '3', value: 0, done: false},
-  		{name: '4', value: 0, done: false},
-  		{name: '5', value: 0, done: false},
-  		{name: '6', value: 0, done: false},
-  		{name: '7', value: 0, done: false},
-  		{name: '8', value: 0, done: false},
-  		{name: '9', value: 0, done: false},
-  		{name: '10', value: 0, done: false},
-  		{name: '11', value: 0, done: false},
-  		{name: '12', value: 0, done: false},
-  		{name: '13', value: 0, done: false},
-  		{name: '14', value: 0, done: false},
-  		{name: '15', value: 0, done: false},
-  		{name: '16', value: 0, done: false},
-  		{name: '17', value: 0, done: false},
-  		{name: '18', value: 0, done: false},
-  		{name: '19', value: 0, done: false},
-  		{name: '20', value: 0, done: false},
-  		{name: 'Bull', value: 0, done: false}
-  	];
+    $scope.double = 1;  
+    $scope.doubleLabel = 1;	
   	$scope.numberOfDoublesHit = 0;
   	$scope.numberOfDartsThrown = 0;
   	$scope.turn = 0;
@@ -52,7 +34,7 @@ angular
     function setPlayerScore(){
     	var hits = parseInt($scope.scoreInput);
 
-    	var double = parseInt($scope.scores[$scope.turn].name)
+    	var double = $scope.double;
     	if($scope.turn == 20) double = 25;
 
     	if(hits === 0){
@@ -61,8 +43,12 @@ angular
     		$scope.score += ((hits * double)*2);    		
     	}
 
-    	$scope.scores[$scope.turn].done = true;
-    	$scope.scores[$scope.turn].value = hits;
+    	$scope.double++;
+    	$scope.doubleLabel++;
+      if($scope.double >= 21){
+        $scope.doubleLabel = 'Bull';
+      }
+
     	$scope.turn++;
     	$scope.numberOfDartsThrown += 3;
     	$scope.numberOfDoublesHit += hits;

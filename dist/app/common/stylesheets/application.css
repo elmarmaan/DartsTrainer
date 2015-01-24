@@ -54,15 +54,6 @@
 	color: white;
 }
 
-.scores .right{
-	float: right;
-	width: 50%;
-}
-.scores .left{
-	float: left;
-	width: 50%;
-}
-
 .van_gerwen{
 	width: 100%;
 	margin-top: -60px
