@@ -1,6 +1,9 @@
 angular
   .module('home')
   .controller('GamesController', function($scope, supersonic) {
+    
+    steroids.view.setBackgroundColor('#0c0c0c');
+
     $scope.startGeneralGame = function(provider){
       var options = {
         title: "",

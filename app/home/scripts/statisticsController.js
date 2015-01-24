@@ -1,6 +1,9 @@
 angular
   .module('home')
   .controller('StatisticsController', function($scope, supersonic) {
+    
+    steroids.view.setBackgroundColor('#0c0c0c');
+
     $scope.showGeneralStatistics = function(provider){
     	var view = new supersonic.ui.View("statistic#general");
         var options = {
