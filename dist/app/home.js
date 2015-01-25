@@ -98,7 +98,6 @@ angular
 angular
   .module('home')
   .controller('LoginController', function($scope, supersonic) {
-    // Controller functionality here
     $scope.username = undefined;
     $scope.password = undefined;
     $scope.player = undefined;

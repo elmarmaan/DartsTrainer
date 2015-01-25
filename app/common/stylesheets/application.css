@@ -37,6 +37,20 @@
 	float: right;
 }
 
+.footer{
+	position: fixed;
+	padding: 5px;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer .score_button{
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	z-index: 10;
+}
+
 .value{
 	float: right;
 }
@@ -75,4 +89,9 @@
 	width: 100%;
 	bottom: 0;
 	position: absolute;	
+}
+
+.double{
+	font-size: 20px;
+	margin-bottom: 10px;
 }

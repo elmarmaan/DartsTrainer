@@ -33,11 +33,13 @@
           <div ng-repeat="cscore in cpuScores track by $index">{{cscore}}</div>
         </div>
       </div>
-    </div>    
-    <div class="footer">
-      <input type="text" placeholder="Score" ng-model="scoreInput" pattern="\d*">
-      <button class="button button-royal" ng-click="setScore()">Next</button>
-    </div>
+    </div> 
   </div>
-    
+  <div class="footer">
+      <label class="item item-input">
+        <span class="input-label">Score: </span>
+        <input type="text" placeholder="Score" ng-model="scoreInput" pattern="\d*">
+      </label>      
+      <button class="button button-balanced score_button" ng-click="setScore()">Set score</button>
+    </div>
 </div>

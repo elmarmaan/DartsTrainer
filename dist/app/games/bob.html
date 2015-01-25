@@ -46,16 +46,24 @@
   <div ng-show="showSpinner" ng-include="'_spinner.html'"></div>
   <div ng-hide="showSpinner" class="padding">    
     <h2 class="center">Score: {{score}}</h2>
+    <div class="center double">
+      Double {{doubleLabel}}         
+    </div>
     <div class="center">
-      Double {{doubleLabel}}     
+      Hits: {{numberOfDoublesHit}}
+    </div>
+    <div class="center">
+      Hit percentage: {{numberOfDoublesHit/numberOfDartsThrown * 100 | number:1}}
     </div>
   </div>
 
   <div class="footer_bob">
-    <button class="button button-balanced" ng-click="setScore(0)">Zero</button>
-    <button class="button button-balanced" ng-click="setScore(1)">One</button>
-    <button class="button button-balanced" ng-click="setScore(2)">Two</button>
-    <button class="button button-balanced" ng-click="setScore(3)">Three</button>
+    <div class="center">
+      <button class="button button-assertive" ng-click="setScore(0)">Zero</button>
+      <button class="button button-balanced" ng-click="setScore(1)">One</button>
+      <button class="button button-balanced" ng-click="setScore(2)">Two</button>
+      <button class="button button-balanced" ng-click="setScore(3)">Three</button>
+    </div>    
   </div>
 </div>
 
